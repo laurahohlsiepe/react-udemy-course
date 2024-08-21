@@ -1,18 +1,24 @@
-import Header from "./Components/Header";
-import Counter from "./Components/Counter";
+"use client"
+
+import React from "react";
 import "./Counter.css";
+import { useState } from "react";
+import Test from "./Test";
 
 
 function Home() {
-
-  const firstvariable = "Expert";
-  const secondvariable = "Developer";
+  const [toggle, updateToggle] = useState(false);
 
   return (
     <main>
       <div className="main">
-        <Header />
-        <Counter />
+      <div>
+          <button onClick={() => 
+            {updateToggle(!toggle)}}>
+              Toggle
+              </button>
+              {toggle && <Test></Test>}
+        </div>
       </div>
     </main>
   );
