@@ -1,14 +1,21 @@
 "use client";
 
-import {React } from 'react';
+import { React } from 'react';
 import { useState } from 'react';
+import { useEffect } from 'react';
 import '../Counter.css';
 
 function Counter() {
 
     let count = 0;
+   const [currentState, updatedState] = useState(count);
 
-    const [currentState, updatedState] = useState(count);
+    useEffect(() => {
+        if (currentState === 5) {
+            window.alert('I am clicked!');
+        }
+    }, [currentState]); 
+ 
 
     const handleClick = () => {
         updatedState(currentState + 1);
